@@ -7,20 +7,20 @@ import Redis from 'redis';
 import Promise from 'bluebird';
 import genericPool from 'generic-pool';
 
+bluebird.promisifyAll(Redis.RedisClient.prototype);
+bluebird.promisifyAll(Redis.Multi.prototype);
+
 var debug = require('debug')('redis');
 
 const default_options = {
   host: '127.0.0.1',
   port: 6379,
+  max: 10,
+  min: 2,
 };
 
 const redis = function (redis_options) {
   redis_options = _.assign({}, default_options, redis_options);
-
-  const pool_options = {
-    max: 10,
-    min: 2,
-  };
 
   const redisPool = genericPool.createPool({
     create : () => () => {
@@ -40,7 +40,7 @@ const redis = function (redis_options) {
       });
     },
     destroy: client => client.quit(),
-  }, pool_options);
+  }, redis_options);
 
   return function koaRedis(ctx, next) {
     return redisPool.acquire()
