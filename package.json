@@ -1,0 +1,26 @@
+{
+  "name": "koa-redis",
+  "version": "0.0.1",
+  "description": "Redis middleware for koa2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "koa",
+    "redis"
+  ],
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "debug": "2.6.0",
+    "generic-pool": "3.1.6",
+    "lodash": "4.17.4",
+    "redis": "^2.6.5"
+  },
+  "devDependencies": {
+    "koa": "2"
+  },
+  "author": "Duong Tran",
+  "license": "MIT",
+  "repository": "https://github.com/t49tran/koa-redis.git"
+}
