@@ -1,9 +1,11 @@
 {
-  "name": "koa-redis",
-  "version": "0.0.1",
+  "name": "dt-koa-redis",
+  "version": "1.0.0",
   "description": "Redis middleware for koa2",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -11,14 +13,20 @@
     "redis"
   ],
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "debug": "2.6.0",
-    "generic-pool": "3.1.6",
-    "lodash": "4.17.4",
-    "redis": "^2.6.5"
+    "debug": "^4.3",
+    "generic-pool": "^3.1",
+    "redis": "^3.1"
+  },
+  "peerDependencies": {
+    "koa": "^2.13"
   },
   "devDependencies": {
-    "koa": "2"
+    "@types/generic-pool": "3.1.9",
+    "@types/koa": "2.13.1",
+    "@types/redis": "2.8.28",
+    "koa": "2.13.1",
+    "prettier": "2.3.0",
+    "typescript": "4.2.4"
   },
   "author": "Duong Tran",
   "license": "MIT",
