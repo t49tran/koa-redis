@@ -1,6 +1,9 @@
 import { createClient, RedisClient } from 'redis';
 import { createPool } from 'generic-pool';
 import { Context, Next } from 'koa';
+import { Promise as PromiseLib } from 'bluebird';
+
+PromiseLib.promisifyAll(RedisClient.prototype);
 
 const debug = require('debug')('redis');
 
@@ -50,6 +53,7 @@ const koaRedisMiddleware = function (redisOptions: RedisOptions) {
               );
             }
           });
+
           client.on('ready', () => {
             resolve(client);
           });

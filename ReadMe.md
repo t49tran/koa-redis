@@ -1,6 +1,8 @@
 ## koa-redis
 
-koa-redis is a mongodb middleware for koa@2, using redis and bluebird, support connection pool, inspired by koa-mongo middleware https://github.com/nswbmw/koa-mongo. It's written in Typescript and support koa2 async / await syntax.
+koa-redis is a redis middleware for koa@2, inspired by koa-mongo middleware https://github.com/nswbmw/koa-mongo. It's written in Typescript and support koa2 async / await syntax.
+
+It provides a promisified wrapper for [node-redis](https://github.com/NodeRedis/node-redis) client using bluebird.
 
 ### Usage
 
@@ -13,18 +15,7 @@ app.use(koaRedis({
   maxConnections: 100,
   minConnections: 1,
 }));
-```
 
-### Example
-
-```
-'use strict';
-import koa from 'koa';
-import koaRedis from 'dt-koa-redis';
-
-const app = new koa();
-
-app.use(koaRedis());
 app.use(async (ctx, next) => {
   try {
 
@@ -35,10 +26,6 @@ app.use(async (ctx, next) => {
   } catch(err) {
     debug(err);
   }
-});
-
-app.listen(3000, () => {
-  console.log('listening on port 3000');
 });
 ```
 
