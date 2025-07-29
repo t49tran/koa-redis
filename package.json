@@ -26,7 +26,7 @@
     "@types/generic-pool": "3.1.9",
     "@types/koa": "2.13.1",
     "@types/redis": "2.8.28",
-    "koa": "2.13.1",
+    "koa": "3.0.1",
     "prettier": "2.3.0",
     "typescript": "4.2.4"
   },
